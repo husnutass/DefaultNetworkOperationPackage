@@ -55,6 +55,8 @@ public class APIManager: APIManagerInterface {
             } catch let error {
                 // completion failure
                 print("error :\(error)")
+                let errorResponse = ErrorResponse(serverResponse: error)
+                completion(.failure(errorResponse))
             }
         }
         

@@ -20,7 +20,11 @@ public class APIManager: APIManagerInterface {
     
     public init() {
         let config = URLSessionConfiguration.default
-        config.waitsForConnectivity = true
+        if #available(iOS 11.0, *) {
+            config.waitsForConnectivity = true
+        } else {
+            // Fallback on earlier versions
+        }
         config.timeoutIntervalForResource = 300
         config.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         self.session = URLSession(configuration: config)

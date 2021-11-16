@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ApiCallListener {
+public protocol ApiCallListener {
     func onPreExecute()
     func onPostExecute()
 }
